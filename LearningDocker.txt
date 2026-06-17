@@ -27,9 +27,8 @@
     # This deletes all unused containers and images
     # Use EXTREMELY carefully preferably not at all because I could end up deleting things I didn't mean to
 
-# docker run -it python:3.13-slim bash
+# docker run -it --name pythonName python:3.13-slim bash
     # Allows me to literally enter the Docker terminal for that container
-    # Don't fully understand. Will come back to this
 
 -------------------------------------------------------------------------------------------------
 ## Build a Docker Image
