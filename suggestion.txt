@@ -1,0 +1,63 @@
+Turbine sensors → Message Queue (Kafka/Kinesis) → Stream Processing (AWS Lambda or similar) → Time-Series Database ("hot" data) → Data Lake ("cold" data) → Dashboard/Alerts.
+
+Wind Turbine Sensors
+         │
+         ▼
+Message Queue (Kafka / AWS Kinesis)
+         │
+         ▼
+Stream Processor (AWS Lambda)
+         │
+   ┌─────┴─────┐
+   ▼           ▼
+Hot Database   Data Lake
+(recent data)  (old data)
+   │
+   ▼
+Dashboard & Alerts
+
+End-to-end ML pipeline: pandas → preprocessing → scikit-learn model → Docker → FastAPI → deployed on a cloud VM or serverless platform.
+IoT streaming simulation: simulate thousands of sensors publishing data, process it with Kafka/Redpanda, store it in PostgreSQL or ClickHouse, and visualise it with Grafana.
+Computer vision project: PyTorch model that classifies or detects objects, wrapped in an API and containerised.
+LLM application: RAG chatbot over your own documents using embeddings and a vector database.
+
+Fast API
+
+It's:
+
+"I built an image classifier with PyTorch, containerised it with Docker, exposed it via a FastAPI endpoint, and deployed it with CI/CD."
+
+The workflow course
+
+
+🐳 Docker (deeper)
+Multi-stage builds
+Docker Compose
+Networks & volumes
+Best practices (small images, .dockerignore, caching)
+🤖 scikit-learn
+Regression
+Classification
+Clustering
+Pipelines
+Cross-validation
+Hyperparameter tuning
+Feature engineering
+🔥 PyTorch
+Tensors
+Autograd
+nn.Module
+DataLoaders
+CNNs
+Transfer learning
+Training loops
+⚙️ GitHub Actions / CI-CD workflows
+Run tests automatically
+Lint code
+Build Docker images
+Push images to Docker Hub/GHCR
+Deploy automatically
+🧠 TensorFlow (optional after PyTorch)
+Learn the Keras API
+Understand TensorFlow Serving/TFLite if interested
+Mainly to broaden your knowledge rather than because you need both
