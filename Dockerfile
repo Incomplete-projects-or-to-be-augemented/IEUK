@@ -14,11 +14,3 @@ COPY turbineProcessing.py telemetry_data_in.csv ./
 # The command to run when someone starts a container from this docker image
 CMD ["python", "turbineProcessing.py"]
 
-# To build Docker image :
-    # docker build -t dockerImageName directoryOnLocalToDrawContextFrom
-
-# To run docker image
-    # docker run --rm --name turbineInstance turbine-app
-    # --rm flag is to delete the container after running it so I don't acucmulate several closed containers
-    # --name is a name for the container because Docker generates some really weird container default names lol
-    

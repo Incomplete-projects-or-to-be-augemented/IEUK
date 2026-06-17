@@ -1,0 +1,109 @@
+# Helpful commands about Docker I'm learning while learning how to write the Docker file: 
+
+# To build Docker image :
+    # docker build -t dockerImageName directoryOnLocalToDrawContextFrom
+
+# To run docker image
+    # docker run --rm --name turbineInstance turbine-app
+    # --rm flag is to delete the container after running it so I don't acucmulate several closed containers
+    # --name is a name for the container because Docker generates some really weird container default names lol
+
+# docker images
+    # This lists all Docker images I have
+
+# docker ps
+    # This lists all the running Docker containers I have
+
+# docker ps
+    # This lists all the Docker containers I have
+
+# docker rmi imageName
+    # This deletes the image
+
+# docker rm container-name
+    # Uhhh obvious but deletes the container
+
+# docker system prune
+    # This deletes all unused containers and images
+    # Use EXTREMELY carefully preferably not at all because I could end up deleting things I didn't mean to
+
+# docker run -it python:3.13-slim bash
+    # Allows me to literally enter the Docker terminal for that container
+    # Don't fully understand. Will come back to this
+
+-------------------------------------------------------------------------------------------------
+## Build a Docker Image
+
+docker build -t <image-name> <build-context>
+
+• Builds a Docker image from a Dockerfile.
+• `-t` assigns a name to the image.
+• The build context is usually `.` (the current directory).
+
+Example:
+docker build -t turbine-app .
+
+## Run a Docker Image
+
+docker run --rm --name <container-name> <image-name>
+
+• `--rm` automatically deletes the container when it exits.
+• `--name` gives the container a memorable name instead of a random one.
+
+Example:
+docker run --rm --name turbineInstance turbine-app
+
+## List Docker Images
+
+docker images
+
+• Displays all Docker images stored on your machine.
+
+## List Running Containers
+
+docker ps
+
+• Shows only containers that are currently running.
+
+## List All Containers
+
+docker ps -a
+
+• Shows both running and stopped containers.
+
+## Delete an Image
+
+docker rmi <image-name>
+
+• Removes a Docker image.
+
+Example:
+docker rmi turbine-app
+
+## Delete a Container
+
+docker rm <container-name>
+
+• Removes a stopped container.
+
+Example:
+docker rm turbineInstance
+
+## Clean Up Unused Docker Resources
+
+docker system prune
+
+• Removes unused containers, networks, dangling images, and build cache.
+• Use with caution—it may delete resources you wanted to keep.
+
+## Open an Interactive Shell in a Container
+
+docker run -it python:3.13-slim bash
+
+• `-i` keeps standard input open.
+• `-t` allocates an interactive terminal.
+• `python:3.13-slim` is the image being run.
+• `bash` starts a Bash shell inside the container.
+
+Useful for exploring a container's filesystem, testing commands, or debugging.
+When you exit the shell, the container stops.
