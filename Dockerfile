@@ -14,3 +14,4 @@ COPY turbineProcessing.py telemetry_data_in.csv ./
 # The command to run when someone starts a container from this docker image
 CMD ["python", "turbineProcessing.py"]
 
+
