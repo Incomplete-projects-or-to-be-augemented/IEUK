@@ -1,9 +1,9 @@
 import pandas as pd
 
-df = pd.read_csv('telemetry_data(in).csv')
+df = pd.read_csv('mock_telemetry_data.csv')
 
-avg_temp = df.groupby("turbine_id")["temperature_c"].mean()
-max_vib = df.groupby("turbine_id")["vibration_mm_s"].max()
+avg_temp = df.groupby("turbine_id")["temperature"].mean()
+max_vib = df.groupby("turbine_id")["vibration"].max()
 
 result = pd.DataFrame({
     "avg_temp": avg_temp,
