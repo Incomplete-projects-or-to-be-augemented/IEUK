@@ -11,7 +11,7 @@ result = pd.DataFrame({
 })
 
 anomalies = result.index[
-    (result["avg_temp"] > 85.0) &
+    (result["avg_temp"] > 85.0) |
     (result["max_vibration"] > 15.0)
 ].tolist()
 print(result)
