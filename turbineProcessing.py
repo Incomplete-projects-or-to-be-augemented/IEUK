@@ -1,12 +1,21 @@
 import pandas as pd
 
-df = pd.read_csv('mock_telemetry_data.csv')
+df = pd.read_csv('telemetry_data(in).csv')
 
-tooHot = df[df["temperature"] > 85.0]
-hotandShaky = tooHot[tooHot["vibration"] > 15.0]
+avg_temp = df.groupby("turbine_id")["temperature_c"].mean()
+max_vib = df.groupby("turbine_id")["vibration_mm_s"].max()
 
-failed = hotandShaky["turbine_id"].drop_duplicates()
-print(f"{len(failed)} turbine IDs that failed the anomaly rules:")
-print(failed.to_string(index=False))
+result = pd.DataFrame({
+    "avg_temp": avg_temp,
+    "max_vibration": max_vib
+}).reset_index()
+
+anomalies = result["turbine_id"][
+    (result["avg_temp"] > 85.0) &
+    (result["max_vibration"] > 15.0)
+]
+print(result)
+print("\nFailing turbines:")
+print(anomalies)
 
 
